@@ -44,6 +44,7 @@
     }
   ],
   "devDependencies": {
-    "@types/node": "^22.5.4"
+    "@types/node": "^22.5.4",
+    "tsdx": "^0.14.1"
   }
 }
