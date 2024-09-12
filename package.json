@@ -30,7 +30,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "flush",
+  "name": "@probablyarth/flush",
   "author": "Arth <probablyarth@gmail.com>",
   "module": "dist/flush.esm.js",
   "size-limit": [
