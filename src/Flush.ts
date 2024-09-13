@@ -1,7 +1,7 @@
 import { Input, Level, OffloadProcessor } from './types';
 
-class ConsoleProcessor<T> implements OffloadProcessor<T> {
-  async process(input: Input<T>) {
+class ConsoleProcessor<M> {
+  async process(input: Input<M>) {
     console.log(
       `[${input.level}] ${input.message} \n ${JSON.stringify(input.metadata)}`
     );
