@@ -1,4 +1,4 @@
-const Levels = {
+export const LEVELS = {
   DEBUG: {
     level: 0,
   },
@@ -8,14 +8,15 @@ const Levels = {
   ERROR: {
     level: 2,
   },
-};
+} as const;
 
-export type Level = keyof typeof Levels;
+export type Level = keyof typeof LEVELS;
 
 export type Input<M = unknown> = {
   level: Level;
   message: string;
   metadata?: M;
+  timestamp: number;
 };
 
 export abstract class OffloadProcessor<T = unknown, E = Error, S = undefined> {

@@ -1,4 +1,5 @@
-import { Input, Level, OffloadProcessor } from './types';
+import { Input, Level, LEVELS, OffloadProcessor } from './types';
+import { PartialMember } from './types/utils';
 
 class ConsoleProcessor<M> {
   async process(input: Input<M>) {
@@ -20,10 +21,13 @@ class Flush<M> {
     private processor: OffloadProcessor<M> = new ConsoleProcessor<M>()
   ) {}
 
-  flush(input: Input<M>) {
+  flush(input: PartialMember<Input<M>, 'timestamp'>) {
     const inputLevel = input.level;
-    if (inputLevel < this.level) return;
-    this.processor.process(input);
+    if (LEVELS[inputLevel].level < LEVELS[this.level].level) return;
+    this.processor.process({
+      ...input,
+      timestamp: input.timestamp ? input.timestamp : Date.now(),
+    });
   }
 }
 
